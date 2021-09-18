@@ -8,7 +8,8 @@ class Graph:
     of the vertices adjacent to the vertex v at index i. The V vertices are named from 0 through V-1.
 
     Given that the implementation uses an adjancency list of sets to represent the graph, one self-loop is 
-    allowed for each vertex. No parallel edges are allowed. 
+    allowed for each vertex. No parallel edges are allowed. It supports methods for adding, deleting and 
+    checking whether edges exists between two vertices as well as methods for retrieving the degree
     
     """
 
@@ -67,7 +68,7 @@ class Graph:
         Returns the degree of vertex v.
         """
         self._validate_vertex(v)
-        return self._adj[v].size()
+        return len(self._adj[v])
 
     def __repr__(self):
         """
@@ -93,7 +94,9 @@ def main():
         for i in range(2,len(lines)):
             v,w = lines[i]
             G.add_edge(v,w)
+        print(G.has_edge(9,12))
         G.delete_edge(9,12)
+        print(G.has_edge(9,12))
         print(G.__repr__())
 
 
