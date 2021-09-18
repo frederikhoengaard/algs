@@ -6,6 +6,9 @@ class Graph:
 
     Each index of the adjacency list thus represents a vertex and the element at that index is thus a set
     of the vertices adjacent to the vertex v at index i. The V vertices are named from 0 through V-1.
+
+    Given that the implementation uses an adjancency list of sets to represent the graph, one self-loop is 
+    allowed for each vertex. No parallel edges are allowed. 
     
     """
 
@@ -25,11 +28,26 @@ class Graph:
     def add_edge(self, v: int, w: int) -> None:
         """
         Adds an undirected edge between vertex v and w to the graph.
-
         """
         self._adj[v].add(w) 
         self._adj[w].add(v) 
         self._E += 1
+
+    def delete_edge(self, v: int, w: int) -> None:
+        """
+        Deletes the undirected edge between vertex v and w from the graph.
+        """
+        if w in self._adj[v] and v in self._adj[w]:
+            self._adj[v].remove(w)
+            self._adj[w].remove(v)
+
+    def has_edge(self, v: int, w: int) -> bool: 
+        """
+        Checks whether an edge exists between vertices v and w.
+        """
+        if w in self._adj[v] and v in self._adj[w]:
+            return True
+        return False
 
     def get_n_vertices(self) -> int:
         return self._V
@@ -40,7 +58,6 @@ class Graph:
     def adj(self, v: int) -> set():
         """
         Returns the vertices adjacent to vertex v.
-
         """
         self._validate_vertex(v)
         return self._adj[v]
@@ -48,7 +65,6 @@ class Graph:
     def degree(self, v):
         """
         Returns the degree of vertex v.
-
         """
         self._validate_vertex(v)
         return self._adj[v].size()
@@ -56,7 +72,6 @@ class Graph:
     def __repr__(self):
         """
         Returns a string representation of this graph.
-
         """
         s = ["Undirected graph with {} vertices and {} edges as below:\n".format(self._V, self._E)]
         for v in range(self._V):
@@ -78,6 +93,7 @@ def main():
         for i in range(2,len(lines)):
             v,w = lines[i]
             G.add_edge(v,w)
+        G.delete_edge(9,12)
         print(G.__repr__())
 
 
