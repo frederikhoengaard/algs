@@ -58,7 +58,7 @@ class Graph:
         Returns a string representation of this graph.
 
         """
-        s = ["{} vertices, {} edges\n".format(self._V, self._E)]
+        s = ["Undirected graph with {} vertices and {} edges as below:\n".format(self._V, self._E)]
         for v in range(self._V):
             s.append("%d : " % (v))
             for w in self._adj[v]:
@@ -70,13 +70,15 @@ class Graph:
 
 def main():
     if 'ut' in argv:
-        G = Graph(5)
-        edges = [(0,1),(0,2),(2,1),(1,3),(3,0),(3,4)]
-        for edge in edges:
-            v,w = edge
+        with open('data/tinyG.txt') as f:
+            lines = [list(map(int,line.split())) for line in f.readlines()]
+            V = lines[0][0]
+            E = lines[1][0]
+        G = Graph(V)
+        for i in range(2,len(lines)):
+            v,w = lines[i]
             G.add_edge(v,w)
-
-        print(G.__repr__)
+        print(G.__repr__())
 
 
 if __name__ == '__main__':
