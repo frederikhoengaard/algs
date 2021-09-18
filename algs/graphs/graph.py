@@ -26,9 +26,6 @@ class Graph:
         """
         Adds an undirected edge between vertex v and w to the graph.
 
-        :param v: one vertex in the edge
-        :param w: the other vertex in the edge
-        :raises ValueError: unless both 0 <= v < V and 0 <= w < V
         """
         self._adj[v].add(w) 
         self._adj[w].add(v) 
@@ -44,9 +41,6 @@ class Graph:
         """
         Returns the vertices adjacent to vertex v.
 
-        :param v: the vertex
-        :returns: the vertices adjacent to vertex v, as an iterable
-        :raises ValueError: unless  0 <= v < V
         """
         self._validate_vertex(v)
         return self._adj[v]
@@ -55,9 +49,6 @@ class Graph:
         """
         Returns the degree of vertex v.
 
-        :param v: the vertex
-        :returns: the degree of vertex v
-        :raises ValueError:  unless 0 <= v < V
         """
         self._validate_vertex(v)
         return self._adj[v].size()
@@ -66,8 +57,6 @@ class Graph:
         """
         Returns a string representation of this graph.
 
-        :returns: the number of vertices V, followed by the number of edges E,
-                  followed by the V adjacency lists
         """
         s = ["{} vertices, {} edges\n".format(self._V, self._E)]
         for v in range(self._V):
