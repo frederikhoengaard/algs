@@ -9,7 +9,8 @@ class Graph:
 
     Given that the implementation uses an adjancency list of sets to represent the graph, one self-loop is 
     allowed for each vertex. No parallel edges are allowed. It supports methods for adding, deleting and 
-    checking whether edges exists between two vertices as well as methods for retrieving the degree
+    checking whether edges exists between two vertices as well as methods for retrieving the degree and 
+    adjacent vertices of a given vertex. 
     
     """
 
