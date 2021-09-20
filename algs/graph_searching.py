@@ -1,5 +1,5 @@
 from sys import argv
-from graph import Graph
+from graphs import Graph
 
 class DepthFirstSearch:
     """
