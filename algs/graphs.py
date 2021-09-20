@@ -75,18 +75,19 @@ class Graph:
         """
         Returns a string representation of this graph.
         """
-        s = ["Undirected graph with {} vertices and {} edges as below:\n".format(self._V, self._E)]
+        s = ['Undirected graph with {} vertices and {} edges as below:\n'.format(self._V, self._E)]
         for v in range(self._V):
             s.append("%d : " % (v))
             for w in self._adj[v]:
                 s.append("%d " % (w))
             s.append("\n")
 
-        return "".join(s)
+        return ''.join(s)
 
 
 def main():
     if 'ut' in argv:
+        # unit test for Graph
         with open('data/tinyG.txt') as f:
             lines = [list(map(int,line.split())) for line in f.readlines()]
             V = lines[0][0]
