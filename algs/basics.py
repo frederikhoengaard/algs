@@ -60,7 +60,6 @@ def main():
         for _ in range(2):
             print(queue.dequeue())
         print(queue.n)
-
         for item in queue:
             print(item)
 
