@@ -103,19 +103,6 @@ class Graph:
         self._validate_vertex(v)
         return len(self._adj[v])
 
-    def __repr__(self):
-        """
-        Returns a string representation of this graph.
-        """
-        s = ['Undirected graph with {} vertices and {} edges as below:\n'.format(self._V, self._E)]
-        for v in range(self._V):
-            s.append("%d : " % (v))
-            for w in self._adj[v]:
-                s.append("%d " % (w))
-            s.append("\n")
-
-        return ''.join(s)
-
 
 def main():
     if 'ut' in argv:
