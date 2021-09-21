@@ -28,9 +28,6 @@ class DirectedWeightedEdge:
         else:
             raise ValueError('Given vertex not connected by this edge!')
 
-    def __repr__(self) -> str:
-        return "Edge from {} to {} with weight {:.5f}".format(self._v, self._w, self._weight)
-
 
 class Graph:
     """
