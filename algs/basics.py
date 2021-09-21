@@ -11,7 +11,7 @@ class Queue:
     """
     The Queue class represents a linked-list implementation of the 
     FIFO queue as originally described in Algorithms, Sedgewick & Wayne, 4ed
-    on p. 151 with the addition of an iterator method. 
+    on p. 151 with the addition of iterator and contains methods. 
 
     All methods including instantiation are constant time operations.
     """
@@ -50,6 +50,14 @@ class Queue:
             yield current.item
             current = current.next
 
+    def __contains__(self, compare_item):
+        if not self.is_empty():
+            for item in self:
+                if item == compare_item:
+                    return True
+        return False
+
+
 
 def main():
     if 'ut' in argv:
@@ -62,6 +70,9 @@ def main():
         print(queue.n)
         for item in queue:
             print(item)
+        print(7 in queue)
+        print(7 not in queue)
+        print(8 in queue)
 
 if __name__ == '__main__':
     main()
