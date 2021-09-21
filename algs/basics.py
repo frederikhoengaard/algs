@@ -61,6 +61,7 @@ class Queue:
 
 def main():
     if 'ut' in argv:
+        # unit test for Queue:
         queue = Queue()
         for i in range(0,10,2):
             queue.enqueue(i)
